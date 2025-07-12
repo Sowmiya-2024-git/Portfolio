@@ -1,19 +1,22 @@
-# Stage 1: Build the Flutter Web App
+# ---------- Build Stage ----------
 FROM cirrusci/flutter:latest AS build
 
 WORKDIR /app
+
+# Copy dependency files first and install
+COPY pubspec.* ./
+RUN flutter pub get
+
+# Copy the rest of the app
 COPY . .
 
-# Enable flutter web support
-RUN flutter channel stable
+# Build flutter web app
 RUN flutter upgrade
 RUN flutter config --enable-web
-RUN flutter pub get
-RUN flutter build web
+RUN flutter build web --release
 
-# Stage 2: Serve with Nginx
+# ---------- Run Stage ----------
 FROM nginx:alpine
 COPY --from=build /app/build/web /usr/share/nginx/html
-
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
