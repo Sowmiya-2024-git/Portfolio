@@ -1,5 +1,6 @@
 # ---------- Build Stage ----------
-FROM cirrusci/flutter:latest AS build
+FROM ghcr.io/cirruslabs/flutter:3.19.2 AS build
+# ✅ This includes Dart 3.7.2
 
 WORKDIR /app
 
