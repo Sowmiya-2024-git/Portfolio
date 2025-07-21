@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/contact_model.dart';
 
 class ContactController {
@@ -14,6 +13,6 @@ class ContactController {
   }
 
   void navigateToHome(BuildContext context) {
-    Navigator.pushNamed(context, '/'); // Navigate to home page
+    Navigator.pushNamed(context, '/');
   }
 }

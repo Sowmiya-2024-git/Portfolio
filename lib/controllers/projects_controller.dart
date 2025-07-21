@@ -1,4 +1,3 @@
-// lib/controllers/projects_controller.dart
 import 'package:flutter/material.dart';
 import '../models/project_model.dart';
 
@@ -29,6 +28,6 @@ class ProjectsController {
   }
 
   void navigateToHome(BuildContext context) {
-    Navigator.pushNamed(context, '/'); // Navigate to home page
+    Navigator.pushNamed(context, '/');
   }
 }

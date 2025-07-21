@@ -1,4 +1,3 @@
-// lib/views/internship_view.dart
 import 'package:flutter/material.dart';
 import '../controllers/internship_controller.dart';
 
@@ -20,7 +19,6 @@ class InternshipView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Custom AppBar with Back Button
             Container(
               padding: EdgeInsets.all(16),
               child: Row(
@@ -31,22 +29,16 @@ class InternshipView extends StatelessWidget {
                     onPressed: () => _controller.navigateToHome(context),
                     tooltip: 'Back to Home',
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Internship',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Icon(Icons.work_history, color: Colors.white, size: 28),
-                    ],
+                  Text(
+                    'Internship',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
                   ),
-                  SizedBox(width: 48), // Placeholder to balance layout
+                  SizedBox(width: 48),
                 ],
               ),
             ),
@@ -60,65 +52,36 @@ class InternshipView extends StatelessWidget {
                   ),
                   color: Colors.white.withOpacity(0.95),
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          internship.role,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF2E3192),
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
                           internship.company,
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          internship.duration,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        Text(
-                          'Responsibilities:',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF2E3192),
-                          ),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF2E3192)),
                         ),
                         SizedBox(height: 10),
-                        ...internship.responsibilities.map(
-                          (responsibility) => Padding(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(Icons.check_circle, color: Color(0xFF2E3192), size: 20),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    responsibility,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black87,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                        Text(
+                          internship.role,
+                          style: TextStyle(fontSize: 16, color: Colors.black87),
                         ),
+                        SizedBox(height: 5),
+                        Text(
+                          internship.duration,
+                          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Responsibilities:',
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF2E3192)),
+                        ),
+                        ...internship.responsibilities.map((resp) => Padding(
+                          padding: const EdgeInsets.only(left: 16, top: 5),
+                          child: Text(
+                            '• $resp',
+                            style: TextStyle(fontSize: 14, color: Colors.black87),
+                          ),
+                        )).toList(),
                       ],
                     ),
                   ),

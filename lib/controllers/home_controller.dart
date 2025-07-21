@@ -15,7 +15,7 @@ class HomeController {
     return ContactInfo(
       email: 'sowmiyasreem.24mca@kongu.edu',
       linkedinUrl: 'https://www.linkedin.com/in/sowmiya-sree-murugesan-8142ab272/',
-      githubUrl: 'https://github.com/Sowmiya-2024-git', // Corrected to a GitHub URL
+      githubUrl: 'https://github.com/Sowmiya-2024-git',
     );
   }
 
@@ -23,9 +23,8 @@ class HomeController {
     return ProfileModel(
       name: 'Sowmiya Sree M',
       title: 'MCA Student | Mobile App Developer',
-      bio:
-          'Passionate about programming, with a strong grip on Java, Data Structures, and DBMS. Skilled in problem-solving and mobile app development using React Native and Flutter. Eager to apply technical abilities in dynamic environments, seeking opportunities to learn, grow, and contribute to innovative solutions.',
-      imageUrl: 'assets/photo.jpg', // Updated to match asset-based approach
+      bio: 'Passionate about programming, with a strong grip on Java, Data Structures, and DBMS. Skilled in problem-solving and mobile app development using React Native and Flutter. Eager to apply technical abilities in dynamic environments, seeking opportunities to learn, grow, and contribute to innovative solutions.',
+      imageUrl: 'assets/photo.jpg',
     );
   }
 

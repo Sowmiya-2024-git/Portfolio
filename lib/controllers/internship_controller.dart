@@ -19,6 +19,6 @@ class InternshipController {
   }
 
   void navigateToHome(BuildContext context) {
-    Navigator.pushNamed(context,'/'); // Pops the current screen to return to the previous screen (e.g., home)
+    Navigator.pushNamed(context, '/');
   }
 }

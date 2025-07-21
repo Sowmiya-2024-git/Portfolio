@@ -1,4 +1,3 @@
-// lib/controllers/education_controller.dart
 import '../models/education_model.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +32,6 @@ class EducationController {
   }
 
   void navigateToHome(BuildContext context) {
-    Navigator.pop(context,'/'); // Pops the current screen to return to the previous screen (e.g., home)
+    Navigator.pushNamed(context, '/');
   }
 }

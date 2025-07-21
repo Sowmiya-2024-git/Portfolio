@@ -1,4 +1,3 @@
-// lib/views/education_view.dart
 import 'package:flutter/material.dart';
 import '../controllers/education_controller.dart';
 
@@ -7,7 +6,7 @@ class EducationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final education = _controller.getEducation();
+    final educations = _controller.getEducation();
 
     return Scaffold(
       body: Container(
@@ -20,7 +19,6 @@ class EducationView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Custom AppBar with Back Button
             Container(
               padding: EdgeInsets.all(16),
               child: Row(
@@ -31,29 +29,23 @@ class EducationView extends StatelessWidget {
                     onPressed: () => _controller.navigateToHome(context),
                     tooltip: 'Back to Home',
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Education',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Icon(Icons.school, color: Colors.white, size: 28),
-                    ],
+                  Text(
+                    'Education',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
                   ),
-                  SizedBox(width: 48), // Placeholder to balance layout
+                  SizedBox(width: 48),
                 ],
               ),
             ),
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                itemCount: education.length,
+                padding: EdgeInsets.all(16),
+                itemCount: educations.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 8,
@@ -67,46 +59,24 @@ class EducationView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              Icon(Icons.bookmark, color: Color(0xFF2E3192), size: 24),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  education[index].degree,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF2E3192),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Text(
+                            educations[index].degree,
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF2E3192)),
                           ),
                           SizedBox(height: 10),
                           Text(
-                            education[index].institution,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black87,
-                            ),
+                            educations[index].institution,
+                            style: TextStyle(fontSize: 16, color: Colors.black87),
                           ),
                           SizedBox(height: 5),
                           Text(
-                            education[index].duration,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                            ),
+                            educations[index].duration,
+                            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                           ),
                           SizedBox(height: 5),
                           Text(
-                            education[index].score,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                              fontWeight: FontWeight.w500,
-                            ),
+                            educations[index].score,
+                            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                           ),
                         ],
                       ),

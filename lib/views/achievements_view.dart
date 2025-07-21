@@ -1,4 +1,3 @@
-// lib/views/achievements_view.dart
 import 'package:flutter/material.dart';
 import '../controllers/achievements_controller.dart';
 
@@ -20,9 +19,8 @@ class AchievementsView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Custom AppBar with Back Button
-            Container(
-              padding: EdgeInsets.all(16),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -31,77 +29,30 @@ class AchievementsView extends StatelessWidget {
                     onPressed: () => _controller.navigateToHome(context),
                     tooltip: 'Back to Home',
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Achievements',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Icon(Icons.emoji_events, color: Colors.white, size: 28),
-                    ],
+                  Text(
+                    'Achievements',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
-                  SizedBox(width: 48), // Placeholder to balance layout
+                  SizedBox(width: 48),
                 ],
               ),
             ),
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                padding: EdgeInsets.all(16),
                 itemCount: achievements.length,
                 itemBuilder: (context, index) {
+                  final achievement = achievements[index];
                   return Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    color: Colors.white.withOpacity(0.95),
-                    margin: EdgeInsets.only(bottom: 16),
-                    child: Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.star, color: Color(0xFF2E3192), size: 24),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  achievements[index].title,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF2E3192),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            achievements[index].details,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black87,
-                              height: 1.5,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            achievements[index].date,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                            ),
-                          ),
-                        ],
-                      ),
+                    elevation: 4,
+                    margin: EdgeInsets.symmetric(vertical: 8),
+                    child: ListTile(
+                      title: Text(achievement.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      subtitle: Text('${achievement.details}\nDate: ${achievement.date}'),
                     ),
                   );
                 },
